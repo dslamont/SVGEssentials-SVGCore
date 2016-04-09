@@ -45,6 +45,7 @@
     <Compile Include="Elements\SvgLine.cs" />
     <Compile Include="Elements\SvgPath.cs" />
     <Compile Include="Elements\SvgPolyLine.cs" />
+    <Compile Include="Elements\SvgRect.cs" />
     <Compile Include="Elements\SvgText.cs" />
     <Compile Include="Elements\SvgUse.cs" />
     <Compile Include="Operations\IOperation.cs" />

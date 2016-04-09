@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 
-namespace SVGFactory.Elements
+namespace SVGCore.Elements
 {
     /// <summary>
     /// Interface for all SVG Elements

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SVGFactory.Utils
+namespace SVGCore.Utils
 {
     public class Utf8StringWriter : StringWriter
     {

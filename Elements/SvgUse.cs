@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using SVGFactory.Elements;
+using SVGCore.Elements;
 using System.Xml;
-using SVGFactory.Operations;
+using SVGCore.Operations;
 
-namespace SVGFactory.Elements
+namespace SVGCore.Elements
 {
     public class SvgUse : ISVGElement
     {

@@ -1,5 +1,5 @@
-﻿using SVGFactory.Elements;
-using SVGFactory.Utils;
+﻿using SVGCore.Elements;
+using SVGCore.Utils;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 
-namespace SVGFactory
+namespace SVGCore
 {
     public class SVGDocument
 
@@ -16,6 +16,9 @@ namespace SVGFactory
         public Stream OutputStream { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
+
+        private int _width;
+        private int _height;
 
         protected List<ISVGElement> ChildElements { get; set; }
 
@@ -86,7 +89,51 @@ namespace SVGFactory
             //Return the names spaces to be added
             return nameSpaces;
         }
-        #endregion 
+        #endregion
+        
+        #region "Properties"
+
+        public int Width
+        {
+            get
+            {
+                return _width;
+            }
+
+            set
+            {
+                if (value < 0)
+                {
+                    _width = 0;
+                }
+                else
+                {
+                    _width = value;
+                }
+            }
+        }
+
+        public int Height
+        {
+            get
+            {
+                return _height;
+            }
+
+            set
+            {
+                if (value < 0)
+                {
+                    _height = 0;
+                }
+                else
+                {
+                    _height = value;
+                }
+            }
+        }
+        
+        #endregion
 
         #region "Rendering"
 
@@ -136,8 +183,8 @@ namespace SVGFactory
                 writer.WriteDocType("svg", "-//W3C//DTD SVG 1.1//EN", "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd", null);
 
                 writer.WriteStartElement("svg", "http://www.w3.org/2000/svg");
-                writer.WriteAttributeString("width", "140");
-                writer.WriteAttributeString("height", "170");
+                writer.WriteAttributeString("width", Width.ToString());
+                writer.WriteAttributeString("height", Height.ToString());
 
                 //Add name spaces 
                 foreach(string nsKey in nameSpaces.Keys)

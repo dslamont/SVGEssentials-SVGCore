@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SVGFactory.Paths
+namespace SVGCore.Paths
 {
     public class SvgPathMoveTo : ISvgPathDirective
     {

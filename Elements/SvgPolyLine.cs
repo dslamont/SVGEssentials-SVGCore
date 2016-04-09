@@ -1,5 +1,5 @@
-﻿using SVGFactory.Styles;
-using SVGFactory.Types;
+﻿using SVGCore.Styles;
+using SVGCore.Types;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 
-namespace SVGFactory.Elements
+namespace SVGCore.Elements
 {
     public class SvgPolyLine : ISVGElement
     {

@@ -8,22 +8,24 @@ using System.Xml;
 
 namespace SVGCore.Elements
 {
-    public class SvgCircle : ISVGElement
+    public class SvgRect : ISVGElement
     {
         private int _x;
         private int _y;
-        private int _radius;
+        private int _width;
+        private int _height;
 
         public Dictionary<string, string> NameSpaces { get; set; }
         public SvgStyleCollection Styles { get; set; }
 
         #region "Constructors" 
 
-        public SvgCircle(int centreX, int centreY, int radius)
+        public SvgRect(int centreX, int centreY, int width, int height)
         {
             X = centreX;
             Y = centreY;
-            Radius = radius;
+            Width = width;
+            Height = height;
 
             NameSpaces = new Dictionary<string, string>();
             Styles = new SvgStyleCollection();
@@ -72,39 +74,59 @@ namespace SVGCore.Elements
                 }
             }
         }
-        public int Radius
+        public int Width
         {
             get
             {
-                return _radius;
+                return _width;
             }
 
             set
             {
                 if (value < 0)
                 {
-                    _radius = 0;
+                    _width = 0;
                 }
                 else
                 {
-                    _radius = value;
+                    _width = value;
+                }
+            }
+        }
+
+        public int Height
+        {
+            get
+            {
+                return _height;
+            }
+
+            set
+            {
+                if (value < 0)
+                {
+                    _height = 0;
+                }
+                else
+                {
+                    _height = value;
                 }
             }
         }
         #endregion
-        
+
         #region "Rendering"
 
         public void Render(XmlWriter writer)
         {
             if (writer != null)
             {
-                writer.WriteStartElement("circle");
+                writer.WriteStartElement("rect");
 
-                writer.WriteAttributeString("cx", X.ToString());
-                writer.WriteAttributeString("cy", Y.ToString());
-                writer.WriteAttributeString("r", Radius.ToString());
-                //writer.WriteAttributeString("style", "stroke:black; fill:none;");
+                writer.WriteAttributeString("x", X.ToString());
+                writer.WriteAttributeString("y", Y.ToString());
+                writer.WriteAttributeString("width", Width.ToString());
+                writer.WriteAttributeString("height", Height.ToString());
 
                 //Add any styles
                 if (Styles != null)

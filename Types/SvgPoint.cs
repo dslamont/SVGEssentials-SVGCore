@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SVGFactory.Types
+namespace SVGCore.Types
 {
     public class SvgPoint
     {
